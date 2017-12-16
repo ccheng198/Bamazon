@@ -14,16 +14,10 @@ connection.connect(function(err) {
 	if (err) throw err;
 	connection.query("SELECT item_id, product_name, price FROM products GROUP BY item_id", function(err, result, fields) {
 		if (err) throw err;
-		console.log(JSON.stringify(result));
+		console.log(result);
 	promptUser();
-	// displayItems();
 	});
 });
-
-// promptUser();
-// var displayItems = function() {
-// 	connection.query("SELECT item_id, product_name, price FROM products GROUP BY item_id", promptUser());
-// }
 
 function promptUser(err, results) {
 	if (err) throw err;
@@ -32,42 +26,41 @@ function promptUser(err, results) {
 			{
 				name: "listOfItems",
 				type: "rawlist",
-				choices: function() {
-					var choiceArray = [];
-					for (var i = 0; i < results.length; i++) {
-						choiceArray.push(results[i].item_name);
-					};
-					return choiceArray;
-				},
-				message: "What product would you like to buy?"
+				choices: [
+					"1",
+					"2",
+					"3",
+					"4",
+					"5",
+					"6",
+					"7",
+					"8",
+					"9",
+					"10"
+				],
+				message: "What product would you like to buy (product id)?"
 			},
 			{
 				name: "howManyUnits",
 				type: "input",
-				message: "How many units would you like to buy?"
+				message: "How many units would you like to purchase?"
 			}
-		]);
-};
+		])
+		.then(function() {
+				if (err) throw err;
+				connection.query("UPDATE products SET stock_quantity = 100 WHERE item_id = 1", function(err, result, fields) {
+					if (err) throw err;
+					console.log(result);
+				})
+		})
+}
 
-// var promptUserCallback = function() {
-// 	// if (promptUser.listOfItems === "Pillow", "Hat", "Book", "Playing Cards", "Lightbulb", "Watch", "Stuffed Animal", "Backpack", "Portable Battery", "Video Game") {
-// 	if (err) throw err;
-// 	inquirer
-// 		.prompt([
-// 			{
-// 				type: "input",
-// 				name: "howManyUnits",
-// 				message: "How many units would you like to buy?"
-// 			}
-// 		])
-// 		.then(confirmPurchase())
-// };
 
-var confirmPurchase = function(request, response) {
-	// if (err) throw err;
+	// how to make sure there's stuff in inventory
 	// if (howManyUnits.response > stock_quantity)
-	console.log("yay!");
-};
+
+	// console.log("You bought " + howManyUnits + " units of " + listOfItems);
+
 
 
 // then prompt user with:
@@ -76,5 +69,10 @@ var confirmPurchase = function(request, response) {
 
 // how to have input not matter on capitalizations
 // how to keep stock of stuffs/display when it's out of stock
+
+
+
+
+
 
 
