@@ -56,22 +56,13 @@ function promptUser(err, results) {
 }
 
 
-	// how to make sure there's stuff in inventory
-	// if (howManyUnits.response > stock_quantity)
+// how to make sure there's enough stock_quantity in db
+// if (howManyUnits.response > stock_quantity) then update the stock_quantity or else console.log("Insufficient quantity!")
+// console.log("You bought " + howManyUnits + " units of " + listOfItems);
 
-	// console.log("You bought " + howManyUnits + " units of " + listOfItems);
-
-
-
-// then prompt user with:
-// The first should ask them the ID of the product they would like to buy.
-// The second message should ask how many units of the product they would like to buy.
-
-// how to have input not matter on capitalizations
-// how to keep stock of stuffs/display when it's out of stock
-
-
-
+// how to update sql database with remaining quantities
+// how to show total cost of purchase
+	// calculate (how many of item) * (price of item) and log it
 
 
 

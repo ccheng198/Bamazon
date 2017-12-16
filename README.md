@@ -1,13 +1,13 @@
 # Bamazon
 
 ## Purpose
-1. Trying to have an interface that displays the items available for purchase as well as letting the user buy them
+An interface that displays the items available for purchase as well as letting the user choose which item and the quantity to buy.
 
 ![screen shot](/bamazon_screen_shot.png)
 
 ### Difficulties:
-1. Understanding how to connect the db with my js app
-2. Time management (focusing on something and forgetting the overall project)
+1. Understanding how to connect the information from the database with the bamazon app
+2. Time management, as I focused on a problem for too long and lost track of the overall project
 
 ## What I learned:
 1. I can sorta do stuff with mySql
